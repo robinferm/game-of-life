@@ -1,8 +1,28 @@
 package main
 
 templ hello(name string) {
-	<div>Hello, { name }</div>
-	for i := range 10{
-	<input type="checkbox" id={i} name={i}>
-}
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"/>
+		</head>
+		<body>
+			<section class="section">
+				<div class="container">
+					<div>Hello, { name }</div>
+					<div class="fixed-grid has-10-cols">
+						<div class="grid checkboxes" style="width: fit-content;">
+							for i := range 10 {
+								for j := range 10 {
+									<input type="checkbox" id={ i - j } name={ i - j }/>
+								}
+							}
+						</div>
+					</div>
+				</div>
+			</section>
+		</body>
+	</html>
 }
