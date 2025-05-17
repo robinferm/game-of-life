@@ -1,25 +1,26 @@
 package main
 
-templ hello(name string) {
+templ grid() {
 	<!DOCTYPE html>
 	<html>
 		<head>
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"/>
+			<script src="//unpkg.com/alpinejs" defer></script>
 		</head>
 		<body>
 			<section class="section">
 				<div class="container">
-					<div>Hello, { name }</div>
-					<div class="fixed-grid has-10-cols">
+					<div class="fixed-grid has-10-cols" x-data="{ checked: false }">
 						<div class="grid checkboxes" style="width: fit-content;">
 							for i := range 10 {
 								for j := range 10 {
-									<input type="checkbox" id={ i - j } name={ i - j }/>
+									<input type="checkbox" id={ i - j } name={ i - j } :checked="checked"/>
 								}
 							}
 						</div>
+						<div class="button" @click="checked = !checked">toggle</div>
 					</div>
 				</div>
 			</section>

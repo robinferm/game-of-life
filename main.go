@@ -11,6 +11,6 @@ func main() {
 }
 
 func test(w http.ResponseWriter, req *http.Request) {
-	component := hello("asd")
+	component := grid()
 	component.Render(context.Background(), w)
 }
